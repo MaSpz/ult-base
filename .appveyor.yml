@@ -64,7 +64,6 @@ install:
       $NewPath = $OldPath + ';' + $MsysPath;
       [Environment]::SetEnvironmentVariable('path', $NewPath, 'machine');
   - refreshenv
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build_script:
   - make install CONTINUE=y
